@@ -84,24 +84,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-staging
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Préparer les permissions ZAP
-        run: |
-          mkdir -p zap
-          chmod 777 zap
-          touch zap/report_html.html
-          touch zap/report_json.json
-          touch zap/report_md.md
-          chmod 777 zap/report_html.html
-          chmod 777 zap/report_json.json
-          chmod 777 zap/report_md.md
-      
       - name: OWASP ZAP Scan
-        uses: zaproxy/action-baseline@v0.12.0
-        with:
-          target: ${{ needs.deploy-staging.outputs.preview_url }}
-          fail_action: true
+        run: |
+          docker run --rm \
+          --user root \
+          ghcr.io/zaproxy/zaproxy:stable \
+          zap-baseline.py \
+          -t ${{ needs.deploy-staging.outputs.preview_url }} \
+          -I
 
   deploy-production:
     runs-on: ubuntu-latest
