@@ -84,10 +84,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy-staging
     steps:
+      - name: Setup ZAP folder
+        run: |
+          mkdir -p /tmp/zap
+          chmod 777 /tmp/zap
+
       - name: OWASP ZAP Scan
         run: |
           docker run --rm \
           --user root \
+          -v /tmp/zap:/zap/wrk/:rw \
           ghcr.io/zaproxy/zaproxy:stable \
           zap-baseline.py \
           -t ${{ needs.deploy-staging.outputs.preview_url }} \
