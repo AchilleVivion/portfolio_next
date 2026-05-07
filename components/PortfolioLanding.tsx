@@ -39,7 +39,7 @@ export function PortfolioLanding() {
 
       <section className="px-6 pb-20 pt-32">
         <div className="mx-auto max-w-6xl">
-          <h1 className="mb-4 text-6xl font-bold">Hi, I&apos;m John Doe</h1>
+          <h1 className="mb-4 text-6xl font-bold">Hi, I&apos;m Achille</h1>
           <p className="mb-8 text-2xl text-gray-600">
             Full Stack Developer &amp; Designer
           </p>
