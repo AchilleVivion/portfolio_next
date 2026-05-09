@@ -77,10 +77,11 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: latest
-        run: pnpm setup
 
       - name: Install vercel CLI
-        run: pnpm install -g vercel
+        run: |
+          pnpm setup
+          pnpm install -g vercel
 
       - name: Deploy Staging
         id: deploy
