@@ -73,16 +73,11 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: latest
-
       - name: Install vercel CLI
-        run: |
-          source /home/runner/.bashrc
-          pnpm setup
-          pnpm install -g vercel
+        run: yarn global add vercel
+
+      - name: add yarn to path
+        run: echo "$(yarn global bin)" >> $GITHUB_PATH
 
       - name: Deploy Staging
         id: deploy
