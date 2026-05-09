@@ -71,7 +71,7 @@ jobs:
 
       - name: Install vercel CLI
         run: |
-          curl -fsSL https://github.com/vercel/vercel/releases/download/latest/download/vercel-linux-x64.tar.gz -o vercel.tar.gz
+          curl -fsSL https://github.com/vercel/vercel/releases/latest/download/vercel-linux-x64.tar.gz -o vercel.tar.gz
           tar -xzf vercel.tar.gz
           sudo mv vercel /usr/local/bin/vercel
           vercel --version
