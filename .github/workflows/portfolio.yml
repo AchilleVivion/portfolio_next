@@ -80,6 +80,7 @@ jobs:
 
       - name: Install vercel CLI
         run: |
+          source /home/runner/.bashrc
           pnpm setup
           pnpm install -g vercel
 
