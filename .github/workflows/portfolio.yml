@@ -68,7 +68,7 @@ jobs:
       preview_url: ${{ steps.deploy.outputs.preview_url }}
     steps:
       - uses: actions/checkout@v4
-      - run: npm install -g vercel
+      - run: npm install -g vercel@latest
       - name: Deploy Staging
         id: deploy
         run: |
