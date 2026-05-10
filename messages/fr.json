@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Portfolio — Achille",
+    "description": "Développeur full stack & designer. Applications web, code propre et expériences utilisateur soignées."
+  },
+  "portfolio": {
+    "nav": {
+      "brand": "Portfolio",
+      "about": "À propos",
+      "projects": "Projets",
+      "skills": "Compétences",
+      "contact": "Contact",
+      "switchLang": "Langue"
+    },
+    "locale": {
+      "en": "English",
+      "fr": "Français"
+    },
+    "hero": {
+      "title": "Bonjour, je suis Achille",
+      "subtitle": "Développeur full stack & designer",
+      "intro": "Je conçois des applications web élégantes et utiles qui résolvent de vrais problèmes. Passionné par le code propre, le design intuitif et des expériences utilisateur remarquables.",
+      "ctaPrimary": "Me contacter",
+      "ctaSecondary": "Voir mes réalisations",
+      "ariaGithub": "GitHub",
+      "ariaLinkedin": "LinkedIn",
+      "ariaEmail": "E-mail"
+    },
+    "about": {
+      "heading": "À propos",
+      "p1": "Je suis un développeur passionné avec plus de 5 ans d'expérience dans la création d'applications web modernes. Je me spécialise en React, TypeScript et Node.js, avec un sens aigu du design et de l'expérience utilisateur.",
+      "p2": "Quand je ne code pas, j'explore de nouvelles technologies, je contribue à l'open source ou je partage mes connaissances par l'écriture technique et le mentorat.",
+      "cards": {
+        "experience": {
+          "title": "Expérience",
+          "value": "Plus de 5 ans en développement web"
+        },
+        "location": {
+          "title": "Localisation",
+          "value": "San Francisco, CA"
+        },
+        "availability": {
+          "title": "Disponibilité",
+          "value": "Ouvert aux opportunités"
+        }
+      }
+    },
+    "projects": {
+      "heading": "Projets en vedette",
+      "viewProject": "Voir le projet",
+      "items": [
+        {
+          "title": "Plateforme e-commerce",
+          "description": "Boutique en ligne complète avec paiement, gestion des stocks et tableau de bord administrateur.",
+          "tags": ["React", "Node.js", "MongoDB"]
+        },
+        {
+          "title": "Application de gestion de tâches",
+          "description": "Outil de gestion de projet collaboratif avec mises à jour en temps réel et travail d'équipe.",
+          "tags": ["TypeScript", "React", "Firebase"]
+        },
+        {
+          "title": "Tableau de bord météo",
+          "description": "Application météo soignée avec prévisions, cartes interactives et alertes géolocalisées.",
+          "tags": ["React", "API Integration", "Charts"]
+        }
+      ]
+    },
+    "skills": {
+      "heading": "Compétences & technologies",
+      "frontend": {
+        "title": "Front-end",
+        "items": [
+          "React & Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "HTML/CSS/JavaScript"
+        ]
+      },
+      "backend": {
+        "title": "Back-end",
+        "items": [
+          "Node.js & Express",
+          "PostgreSQL & MongoDB",
+          "API REST",
+          "GraphQL"
+        ]
+      },
+      "tools": {
+        "title": "Outils & autres",
+        "items": ["Git & GitHub", "Docker", "AWS & Vercel", "Figma"]
+      }
+    },
+    "contact": {
+      "heading": "Travaillons ensemble",
+      "body": "Je suis toujours partant pour parler de nouveaux projets et opportunités. Une question ou simplement envie de dire bonjour — écrivez-moi !",
+      "cta": "Me contacter"
+    },
+    "footer": {
+      "copyright": "© {year} John Doe. Tous droits réservés."
+    }
+  }
+}

@@ -1,86 +1,96 @@
 import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 
-export function PortfolioLanding() {
+type ProjectItem = {
+  title: string;
+  description: string;
+  tags: string[];
+};
+
+export async function PortfolioLanding() {
+  const t = await getTranslations("portfolio");
+  const projects = t.raw("projects.items") as ProjectItem[];
+
   return (
     <div className="min-h-screen bg-white">
       <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <a href="#" className="text-xl font-semibold">
-            Portfolio
+            {t("nav.brand")}
           </a>
-          <div className="flex gap-8">
-            <a
-              href="#about"
-              className="transition-colors hover:text-gray-600"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className="transition-colors hover:text-gray-600"
-            >
-              Projects
-            </a>
-            <a
-              href="#skills"
-              className="transition-colors hover:text-gray-600"
-            >
-              Skills
-            </a>
-            <a
-              href="#contact"
-              className="transition-colors hover:text-gray-600"
-            >
-              Contact
-            </a>
+          <div className="flex flex-wrap items-center gap-6 md:gap-8">
+            <div className="flex flex-wrap gap-6 md:gap-8">
+              <a
+                href="#about"
+                className="transition-colors hover:text-gray-600"
+              >
+                {t("nav.about")}
+              </a>
+              <a
+                href="#projects"
+                className="transition-colors hover:text-gray-600"
+              >
+                {t("nav.projects")}
+              </a>
+              <a
+                href="#skills"
+                className="transition-colors hover:text-gray-600"
+              >
+                {t("nav.skills")}
+              </a>
+              <a
+                href="#contact"
+                className="transition-colors hover:text-gray-600"
+              >
+                {t("nav.contact")}
+              </a>
+            </div>
+            <LocaleSwitcher />
           </div>
         </div>
       </nav>
 
       <section className="px-6 pb-20 pt-32">
         <div className="mx-auto max-w-6xl">
-          <h1 className="mb-4 text-6xl font-bold">Hi, I&apos;m Achille</h1>
-          <p className="mb-8 text-2xl text-gray-600">
-            Full Stack Developer &amp; Designer
-          </p>
+          <h1 className="mb-4 text-6xl font-bold">{t("hero.title")}</h1>
+          <p className="mb-8 text-2xl text-gray-600">{t("hero.subtitle")}</p>
           <p className="mb-8 max-w-2xl text-lg text-gray-500">
-            I build beautiful, functional web applications that solve real
-            problems. Passionate about clean code, intuitive design, and
-            creating exceptional user experiences.
+            {t("hero.intro")}
           </p>
           <div className="flex gap-4">
             <a
               href="#contact"
               className="rounded-lg bg-black px-6 py-3 text-white transition-colors hover:bg-gray-800"
             >
-              Get in touch
+              {t("hero.ctaPrimary")}
             </a>
             <a
               href="#projects"
               className="rounded-lg border border-gray-300 px-6 py-3 transition-colors hover:border-gray-400"
             >
-              View my work
+              {t("hero.ctaSecondary")}
             </a>
           </div>
           <div className="mt-8 flex gap-4">
             <a
               href="#"
               className="text-gray-600 transition-colors hover:text-black"
-              aria-label="GitHub"
+              aria-label={t("hero.ariaGithub")}
             >
               <Github size={24} />
             </a>
             <a
               href="#"
               className="text-gray-600 transition-colors hover:text-black"
-              aria-label="LinkedIn"
+              aria-label={t("hero.ariaLinkedin")}
             >
               <Linkedin size={24} />
             </a>
             <a
               href="mailto:hello@johndoe.com"
               className="text-gray-600 transition-colors hover:text-black"
-              aria-label="Email"
+              aria-label={t("hero.ariaEmail")}
             >
               <Mail size={24} />
             </a>
@@ -90,33 +100,36 @@ export function PortfolioLanding() {
 
       <section id="about" className="bg-gray-50 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-4xl font-bold">About Me</h2>
+          <h2 className="mb-8 text-4xl font-bold">{t("about.heading")}</h2>
           <div className="grid gap-12 md:grid-cols-2">
             <div>
-              <p className="mb-4 text-lg text-gray-600">
-                I&apos;m a passionate developer with 5+ years of experience
-                building modern web applications. I specialize in React,
-                TypeScript, and Node.js, with a keen eye for design and user
-                experience.
-              </p>
-              <p className="text-lg text-gray-600">
-                When I&apos;m not coding, you&apos;ll find me exploring new
-                technologies, contributing to open source, or sharing knowledge
-                through technical writing and mentorship.
-              </p>
+              <p className="mb-4 text-lg text-gray-600">{t("about.p1")}</p>
+              <p className="text-lg text-gray-600">{t("about.p2")}</p>
             </div>
             <div className="space-y-4">
               <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-2 font-semibold">Experience</h3>
-                <p className="text-gray-600">5+ years in web development</p>
+                <h3 className="mb-2 font-semibold">
+                  {t("about.cards.experience.title")}
+                </h3>
+                <p className="text-gray-600">
+                  {t("about.cards.experience.value")}
+                </p>
               </div>
               <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-2 font-semibold">Location</h3>
-                <p className="text-gray-600">San Francisco, CA</p>
+                <h3 className="mb-2 font-semibold">
+                  {t("about.cards.location.title")}
+                </h3>
+                <p className="text-gray-600">
+                  {t("about.cards.location.value")}
+                </p>
               </div>
               <div className="rounded-lg bg-white p-6 shadow-sm">
-                <h3 className="mb-2 font-semibold">Availability</h3>
-                <p className="text-gray-600">Open to opportunities</p>
+                <h3 className="mb-2 font-semibold">
+                  {t("about.cards.availability.title")}
+                </h3>
+                <p className="text-gray-600">
+                  {t("about.cards.availability.value")}
+                </p>
               </div>
             </div>
           </div>
@@ -125,28 +138,9 @@ export function PortfolioLanding() {
 
       <section id="projects" className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-12 text-4xl font-bold">Featured Projects</h2>
+          <h2 className="mb-12 text-4xl font-bold">{t("projects.heading")}</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "E-Commerce Platform",
-                description:
-                  "A full-featured online store with payment integration, inventory management, and admin dashboard.",
-                tags: ["React", "Node.js", "MongoDB"],
-              },
-              {
-                title: "Task Management App",
-                description:
-                  "Collaborative project management tool with real-time updates and team collaboration features.",
-                tags: ["TypeScript", "React", "Firebase"],
-              },
-              {
-                title: "Weather Dashboard",
-                description:
-                  "Beautiful weather app with forecasts, interactive maps, and location-based alerts.",
-                tags: ["React", "API Integration", "Charts"],
-              },
-            ].map((project) => (
+            {projects.map((project) => (
               <div
                 key={project.title}
                 className="rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg"
@@ -168,7 +162,7 @@ export function PortfolioLanding() {
                   href="#"
                   className="flex items-center gap-2 text-black transition-colors hover:text-gray-600"
                 >
-                  View Project <ExternalLink size={16} />
+                  {t("projects.viewProject")} <ExternalLink size={16} />
                 </a>
               </div>
             ))}
@@ -178,33 +172,36 @@ export function PortfolioLanding() {
 
       <section id="skills" className="bg-gray-50 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-12 text-4xl font-bold">Skills &amp; Technologies</h2>
+          <h2 className="mb-12 text-4xl font-bold">{t("skills.heading")}</h2>
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <h3 className="mb-4 text-xl font-semibold">Frontend</h3>
+              <h3 className="mb-4 text-xl font-semibold">
+                {t("skills.frontend.title")}
+              </h3>
               <ul className="space-y-2 text-gray-600">
-                <li>React &amp; Next.js</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-                <li>HTML/CSS/JavaScript</li>
+                {(t.raw("skills.frontend.items") as string[]).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div>
-              <h3 className="mb-4 text-xl font-semibold">Backend</h3>
+              <h3 className="mb-4 text-xl font-semibold">
+                {t("skills.backend.title")}
+              </h3>
               <ul className="space-y-2 text-gray-600">
-                <li>Node.js &amp; Express</li>
-                <li>PostgreSQL &amp; MongoDB</li>
-                <li>REST APIs</li>
-                <li>GraphQL</li>
+                {(t.raw("skills.backend.items") as string[]).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div>
-              <h3 className="mb-4 text-xl font-semibold">Tools &amp; Others</h3>
+              <h3 className="mb-4 text-xl font-semibold">
+                {t("skills.tools.title")}
+              </h3>
               <ul className="space-y-2 text-gray-600">
-                <li>Git &amp; GitHub</li>
-                <li>Docker</li>
-                <li>AWS &amp; Vercel</li>
-                <li>Figma</li>
+                {(t.raw("skills.tools.items") as string[]).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -213,25 +210,23 @@ export function PortfolioLanding() {
 
       <section id="contact" className="px-6 py-20">
         <div className="mx-auto max-w-6xl text-center">
-          <h2 className="mb-8 text-4xl font-bold">Let&apos;s Work Together</h2>
+          <h2 className="mb-8 text-4xl font-bold">{t("contact.heading")}</h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
-            I&apos;m always interested in hearing about new projects and
-            opportunities. Whether you have a question or just want to say hi,
-            feel free to reach out!
+            {t("contact.body")}
           </p>
           <a
             href="mailto:hello@johndoe.com"
             className="inline-flex items-center gap-2 rounded-lg bg-black px-8 py-4 text-white transition-colors hover:bg-gray-800"
           >
             <Mail size={20} />
-            Get in Touch
+            {t("contact.cta")}
           </a>
         </div>
       </section>
 
       <footer className="border-t border-gray-200 px-6 py-8">
         <div className="mx-auto max-w-6xl text-center text-gray-600">
-          <p>&copy; 2026 John Doe. All rights reserved.</p>
+          <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>
