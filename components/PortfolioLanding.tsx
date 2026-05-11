@@ -23,7 +23,7 @@ export async function PortfolioLanding() {
             {t("hero.subtitle")}
           </p>
           <div
-            className="relative mx-auto h-[min(44vh,400px)] w-[min(100%,240px)] justify-self-center sm:h-[min(48vh,440px)] sm:w-[260px] lg:col-start-2 lg:row-start-1 lg:row-span-5 lg:mx-0 lg:h-[min(62vh,560px)] lg:w-[300px] lg:justify-self-end"
+            className="relative mx-auto my-6 h-[min(44vh,400px)] w-[min(100%,240px)] justify-self-center sm:my-8 sm:h-[min(48vh,440px)] sm:w-[260px] lg:col-start-2 lg:row-start-1 lg:row-span-5 lg:mx-0 lg:my-0 lg:h-[min(62vh,560px)] lg:w-[300px] lg:justify-self-end"
           >
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.42] sm:scale-[0.46] lg:scale-[0.54]">
               <RiveAvatar />
