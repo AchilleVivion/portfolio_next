@@ -97,7 +97,7 @@ export function PortfolioNavbar() {
             {t(msg)}
           </a>
         ))}
-        <div className="pt-2">
+        <div className="flex w-full justify-center pt-2">
           <LocaleSwitcher />
         </div>
       </div>
