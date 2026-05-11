@@ -2,7 +2,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   useRive,
   useStateMachineInput,
@@ -21,16 +21,24 @@ function RiveCanvas() {
 
   const waveInput = useStateMachineInput(rive, 'State Machine 1', 'wave')
 
-  useEffect(() => {
-    if (waveInput) waveInput.fire()
+  const fireWave = useCallback(() => {
+    waveInput?.fire()
   }, [waveInput])
+
+  useEffect(() => {
+    fireWave()
+  }, [fireWave])
 
   useEffect(() => {
     return () => { rive?.cleanup() }
   }, [rive])
 
   return (
-    <div style={{ width: avatarWidth, height: avatarHeight }}>
+    <div
+      style={{ width: avatarWidth, height: avatarHeight }}
+      className="cursor-pointer"
+      onMouseEnter={fireWave}
+    >
       <RiveComponent />
     </div>
   )
