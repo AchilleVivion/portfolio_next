@@ -50,7 +50,7 @@ function MobileNav({
       }`}
     >
       <NavItems t={t} className="py-1 text-lg transition-colors hover:text-gray-600" onClick={onClose} />
-      <div className="pt-2">
+      <div className="flex w-full justify-center pt-2">
         <LocaleSwitcher />
       </div>
     </div>

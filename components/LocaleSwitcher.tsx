@@ -14,7 +14,7 @@ export function LocaleSwitcher() {
     <div
       role="group"
       aria-label={tNav("switchLang")}
-      className="inline-flex w-fit max-w-full shrink-0 items-center gap-1 rounded-full border border-gray-200 bg-white/90 px-1 py-1 text-sm shadow-sm"
+      className="flex w-fit max-w-full shrink-0 items-center gap-1 self-center rounded-full border border-gray-200 bg-white/90 px-1 py-1 text-sm shadow-sm"
     >
       {routing.locales.map((loc) => (
         <Link
