@@ -5,12 +5,14 @@
   },
   "portfolio": {
     "nav": {
-      "brand": "Portfolio",
+      "brand": "Home",
       "about": "About",
       "projects": "Projects",
       "skills": "Skills",
       "contact": "Contact",
-      "switchLang": "Language"
+      "switchLang": "Language",
+      "menuOpen": "Open navigation menu",
+      "menuClose": "Close navigation menu"
     },
     "locale": {
       "en": "English",
