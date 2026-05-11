@@ -5,7 +5,7 @@ import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 
 const RiveAvatar = dynamic(
     () => import('@/components/RiveAvatar'),
-    { ssr: false }
+    { ssr: false } 
 );
 
 type ProjectItem = {
