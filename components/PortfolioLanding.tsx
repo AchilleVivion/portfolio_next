@@ -1,6 +1,5 @@
 import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { PortfolioNavbar } from "@/components/PortfolioNavbar";
 import RiveAvatar from "@/components/RiveAvatar";
 
 type ProjectItem = {
@@ -15,8 +14,6 @@ export async function PortfolioLanding() {
 
   return (
     <div className="min-h-screen bg-white">
-      <PortfolioNavbar />
-
       <section className="px-6 pb-20 pt-32">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-y-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] lg:gap-x-12 lg:gap-y-6 lg:items-center">
           <h1 className="text-5xl font-bold sm:text-6xl lg:col-start-1 lg:row-start-1">

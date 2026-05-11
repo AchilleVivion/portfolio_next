@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PortfolioLanding } from "@/components/PortfolioLanding";
+import { PortfolioNavbar } from "@/components/PortfolioNavbar";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -20,5 +21,10 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <PortfolioLanding />;
+  return (
+    <>
+      <PortfolioNavbar key={locale} />
+      <PortfolioLanding />
+    </>
+  );
 }
