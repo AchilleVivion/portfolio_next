@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PortfolioLanding } from "@/components/PortfolioLanding";
-import { routing } from "@/i18n/routing";
 
 type Props = {
   params: Promise<{ locale: string }>;
