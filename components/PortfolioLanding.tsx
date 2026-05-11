@@ -1,6 +1,6 @@
 import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { PortfolioNavbar } from "@/components/PortfolioNavbar";
 import RiveAvatar from "@/components/RiveAvatar";
 
 type ProjectItem = {
@@ -15,42 +15,7 @@ export async function PortfolioLanding() {
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
-          <a href="#" className="text-xl font-semibold">
-            {t("nav.brand")}
-          </a>
-          <div className="flex flex-wrap items-center gap-6 md:gap-8">
-            <div className="flex flex-wrap gap-6 md:gap-8">
-              <a
-                href="#about"
-                className="transition-colors hover:text-gray-600"
-              >
-                {t("nav.about")}
-              </a>
-              <a
-                href="#projects"
-                className="transition-colors hover:text-gray-600"
-              >
-                {t("nav.projects")}
-              </a>
-              <a
-                href="#skills"
-                className="transition-colors hover:text-gray-600"
-              >
-                {t("nav.skills")}
-              </a>
-              <a
-                href="#contact"
-                className="transition-colors hover:text-gray-600"
-              >
-                {t("nav.contact")}
-              </a>
-            </div>
-            <LocaleSwitcher />
-          </div>
-        </div>
-      </nav>
+      <PortfolioNavbar />
 
       <section className="px-6 pb-20 pt-32">
         <RiveAvatar />
