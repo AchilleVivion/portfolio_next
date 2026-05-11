@@ -8,6 +8,12 @@ export default function RiveCharacter() {
         src: '/avatar.riv',
         stateMachines: 'State Machine 1',  // ← Le nom exact dans Rive
         autoplay: true,
+        onLoad: () => {
+            console.log('Rive avatar loaded')
+        },
+        onLoadError: (error) => {
+            console.error('Rive avatar error', error)
+        },
     })
 
     // Inputs de ta State Machine
