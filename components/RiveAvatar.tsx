@@ -1,7 +1,9 @@
 'use client'
 
-import { useRive, useStateMachineInput } from '@rive-app/react-canvas'
+import { useRive, useStateMachineInput, RuntimeLoader } from '@rive-app/react-canvas'
 import { useEffect } from 'react'
+
+RuntimeLoader.setWasmUrl('https://unpkg.com/@rive-app/canvas@latest/rive.wasm');
 
 export default function RiveCharacter() {
     const { rive, RiveComponent } = useRive({
