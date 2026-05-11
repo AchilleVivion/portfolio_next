@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@rive-app/react-canvas": "^4.28.4",
+    "@rive-app/react-canvas-lite": "^4.28.4",
+    "@rive-app/react-webgl2": "^4.28.4",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "lucide-react": "^0.468.0",

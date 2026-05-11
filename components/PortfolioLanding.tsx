@@ -1,7 +1,7 @@
 import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
-import RiveAvatarWrapper from "@/components/RiveAvatarWrapper";
+import RiveAvatar from "@/components/RiveAvatar";
 
 type ProjectItem = {
   title: string;
@@ -53,7 +53,7 @@ export async function PortfolioLanding() {
       </nav>
 
       <section className="px-6 pb-20 pt-32">
-        <RiveAvatarWrapper />
+        <RiveAvatar />
         <div className="mx-auto max-w-6xl">
           <h1 className="mb-4 text-6xl font-bold">{t("hero.title")}</h1>
           <p className="mb-8 text-2xl text-gray-600">{t("hero.subtitle")}</p>

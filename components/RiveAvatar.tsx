@@ -1,37 +1,65 @@
 'use client'
 
-import { useRive, useStateMachineInput, RuntimeLoader } from '@rive-app/react-canvas'
-import { useEffect } from 'react'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 
-RuntimeLoader.setWasmUrl('https://unpkg.com/@rive-app/canvas@latest/rive.wasm');
+const avatarWidth = 500;
+const avatarHeight = 1000;
 
-export default function RiveCharacter() {
-    const { rive, RiveComponent } = useRive({
-        src: '/avatar.riv',
-        stateMachines: 'State Machine 1',  // ← Le nom exact dans Rive
-        autoplay: true,
-        onLoad: () => {
-            console.log('Rive avatar loaded')
+const RiveComponent = dynamic(
+  () =>
+    import('@rive-app/react-webgl2').then((mod) => {
+      if (mod.RuntimeLoader) {
+        mod.RuntimeLoader.setWasmUrl('/rive.wasm')
+      }
+
+      return {
+        default() {
+          const { useRive, useStateMachineInput } = mod
+          const [isLoaded, setIsLoaded] = useState(false)
+
+          const { RiveComponent: RiveCanvas, rive } = useRive({
+            src: '/avatar.riv',
+            stateMachines: 'State Machine 1',
+            autoplay: true,
+            onLoad: () => setIsLoaded(true),
+          })
+
+          const waveInput = useStateMachineInput(rive, 'State Machine 1', 'wave')
+          const scrollInput = useStateMachineInput(rive, 'State Machine 1', 'scrollDirection')
+
+          // Wave on loading
+          useEffect(() => {
+            if (waveInput) waveInput.fire()
+          }, [waveInput])
+
+          // Cleanup
+          useEffect(() => {
+            return () => { rive?.cleanup() }
+          }, [rive])
+
+          return (
+            <div style={{ width: avatarWidth, height: avatarHeight }}>
+              <RiveCanvas />
+            </div>
+          )
         },
-        onLoadError: (error) => {
-            console.error('Rive avatar error', error)
-        },
-    })
+      }
+    }),
+  {
+    ssr: false,
+    loading: () => <div style={{ width: avatarWidth, height: avatarHeight }} />,
+  }
+)
 
-    // Inputs de ta State Machine
-    const waveInput = useStateMachineInput(rive, 'State Machine 1', 'wave')
+export default function RiveAvatar() {
+  const [isMounted, setIsMounted] = useState(false)
 
-    // Launch wave when loaded
-    useEffect(() => {
-        if (waveInput) waveInput.fire()
-    }, [waveInput])
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
-    return (
-        <RiveComponent
-            style={{
-                width: 500,
-                height: 1000,
-            }}
-        />
-    )
+  if (!isMounted) return <div style={{ width: avatarWidth, height: avatarHeight }} />
+
+  return <RiveComponent />
 }
