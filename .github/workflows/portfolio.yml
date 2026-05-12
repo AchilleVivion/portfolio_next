@@ -15,7 +15,6 @@ jobs:
         with:
           node-version: "22"
           cache: npm
-      - run: npm install --ignore-scripts
       - run: npm ci --ignore-scripts
       - run: npm test
 
@@ -25,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - run: "pip install semgrep --only-binary=:all:"
+      - run: "pip install semgrep==1.110.0 --only-binary=:all:"
       - run: semgrep --config=p/typescript --config=p/react --error
 
   dependency-scan:
@@ -36,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=high
 
   lints:
@@ -73,7 +72,7 @@ jobs:
         with:
           node-version: '22'
 
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
@@ -162,7 +161,7 @@ jobs:
     needs: [dast, security-headers]
     steps:
       - uses: actions/checkout@v4
-      - run: npm install -g vercel --ignore-scripts
+      - run: yarn global add vercel
       - run: vercel --prod --yes
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
