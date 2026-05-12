@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useId, useState } from "react";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { Link } from "@/i18n/navigation";
 
 const NAV_LINKS = [
   { href: "#about", msg: "about" as const },
@@ -83,7 +84,9 @@ export function PortfolioNavbar() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <a href="#" className="text-xl font-semibold">{t("brand")}</a>
+        <Link href="/" className="text-xl font-semibold">
+          {t("brand")}
+        </Link>
         <DesktopNav t={t} />
         <button type="button" className="rounded-lg p-2 text-gray-800 transition-colors hover:bg-gray-100 md:hidden" aria-expanded={open} aria-controls={menuId} aria-label={open ? t("menuClose") : t("menuOpen")} onClick={() => setOpen((v) => !v)}>{open ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}</button>
       </div>

@@ -25,8 +25,13 @@ export function PortfolioProjects({ t, projects }: Readonly<PortfolioProjectsPro
                   </span>
                 ))}
               </div>
-              <a href="#" className="flex items-center gap-2 text-black transition-colors hover:text-gray-600">
-                {t("projects.viewProject")} <ExternalLink size={16} />
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-black transition-colors hover:text-gray-600"
+              >
+                {t("projects.viewProject")} <ExternalLink size={16} aria-hidden />
               </a>
             </div>
           ))}
