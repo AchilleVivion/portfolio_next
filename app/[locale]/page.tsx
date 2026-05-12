@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function HomePage({ params }: Props) {
+export default async function HomePage({ params }: Readonly<Props>) {
   const { locale } = await params;
   setRequestLocale(locale);
 

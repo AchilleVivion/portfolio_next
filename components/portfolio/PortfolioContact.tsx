@@ -3,7 +3,7 @@ import type { PortfolioT } from "@/components/portfolio/translator";
 
 type PortfolioContactProps = { t: PortfolioT };
 
-export function PortfolioContact({ t }: PortfolioContactProps) {
+export function PortfolioContact({ t }: Readonly<PortfolioContactProps>) {
   return (
     <section id="contact" className="px-6 py-20">
       <div className="mx-auto max-w-6xl text-center">

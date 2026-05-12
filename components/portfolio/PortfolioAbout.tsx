@@ -2,7 +2,7 @@ import type { PortfolioT } from "@/components/portfolio/translator";
 
 type PortfolioAboutProps = { t: PortfolioT };
 
-export function PortfolioAbout({ t }: PortfolioAboutProps) {
+export function PortfolioAbout({ t }: Readonly<PortfolioAboutProps>) {
   const cards = [
     { title: t("about.cards.experience.title"), value: t("about.cards.experience.value") },
     { title: t("about.cards.location.title"), value: t("about.cards.location.value") },

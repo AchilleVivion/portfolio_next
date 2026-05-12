@@ -4,7 +4,7 @@ import type { PortfolioT } from "@/components/portfolio/translator";
 
 type PortfolioHeroProps = { t: PortfolioT };
 
-export function PortfolioHero({ t }: PortfolioHeroProps) {
+export function PortfolioHero({ t }: Readonly<PortfolioHeroProps>) {
   return (
     <section className="px-6 pb-20 pt-32">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-y-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] lg:gap-x-12 lg:gap-y-6 lg:items-center">

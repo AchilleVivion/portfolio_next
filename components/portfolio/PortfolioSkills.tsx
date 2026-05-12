@@ -2,7 +2,7 @@ import type { PortfolioT } from "@/components/portfolio/translator";
 
 type PortfolioSkillsProps = { t: PortfolioT };
 
-export function PortfolioSkills({ t }: PortfolioSkillsProps) {
+export function PortfolioSkills({ t }: Readonly<PortfolioSkillsProps>) {
   const cols = [
     { title: t("skills.frontend.title"), items: t.raw?.("skills.frontend.items") as string[] },
     { title: t("skills.backend.title"), items: t.raw?.("skills.backend.items") as string[] },

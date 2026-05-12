@@ -25,7 +25,7 @@ function NavItems({
   ));
 }
 
-function DesktopNav({ t }: { t: T }) {
+function DesktopNav({ t }: Readonly<{ t: T }>) {
   return (
     <div className="hidden items-center gap-8 md:flex">
       <div className="flex gap-8">
@@ -41,7 +41,7 @@ function MobileNav({
   menuId,
   open,
   onClose,
-}: { t: T; menuId: string; open: boolean; onClose: () => void }) {
+}: Readonly<{ t: T; menuId: string; open: boolean; onClose: () => void }>) {
   return (
     <div
       id={menuId}

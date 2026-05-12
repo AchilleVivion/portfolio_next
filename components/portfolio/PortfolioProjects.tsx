@@ -7,7 +7,7 @@ type PortfolioProjectsProps = {
   projects: ProjectItem[];
 };
 
-export function PortfolioProjects({ t, projects }: PortfolioProjectsProps) {
+export function PortfolioProjects({ t, projects }: Readonly<PortfolioProjectsProps>) {
   return (
     <section id="projects" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
