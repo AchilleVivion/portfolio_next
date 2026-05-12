@@ -26,7 +26,9 @@
       "ctaSecondary": "Voir mes réalisations",
       "ariaGithub": "GitHub",
       "ariaLinkedin": "LinkedIn",
-      "ariaEmail": "E-mail"
+      "ariaEmail": "E-mail",
+      "githubUrl": "https://github.com/",
+      "linkedinUrl": "https://www.linkedin.com/"
     },
     "about": {
       "heading": "À propos",
@@ -54,17 +56,20 @@
         {
           "title": "Plateforme e-commerce",
           "description": "Boutique en ligne complète avec paiement, gestion des stocks et tableau de bord administrateur.",
-          "tags": ["React", "Node.js", "MongoDB"]
+          "tags": ["React", "Node.js", "MongoDB"],
+          "href": "https://demo.vercel.store/"
         },
         {
           "title": "Application de gestion de tâches",
           "description": "Outil de gestion de projet collaboratif avec mises à jour en temps réel et travail d'équipe.",
-          "tags": ["TypeScript", "React", "Firebase"]
+          "tags": ["TypeScript", "React", "Firebase"],
+          "href": "https://github.com/topics/task-management"
         },
         {
           "title": "Tableau de bord météo",
           "description": "Application météo soignée avec prévisions, cartes interactives et alertes géolocalisées.",
-          "tags": ["React", "API Integration", "Charts"]
+          "tags": ["React", "API Integration", "Charts"],
+          "href": "https://www.windy.com/"
         }
       ]
     },

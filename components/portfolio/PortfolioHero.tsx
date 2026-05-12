@@ -21,9 +21,27 @@ export function PortfolioHero({ t }: Readonly<PortfolioHeroProps>) {
           <a href="#projects" className="rounded-lg border border-gray-300 px-6 py-3 transition-colors hover:border-gray-400">{t("hero.ctaSecondary")}</a>
         </div>
         <div className="flex gap-4 lg:col-start-1 lg:row-start-5">
-          <a href="#" className="text-gray-600 transition-colors hover:text-black" aria-label={t("hero.ariaGithub")}><Github size={24} /></a>
-          <a href="#" className="text-gray-600 transition-colors hover:text-black" aria-label={t("hero.ariaLinkedin")}><Linkedin size={24} /></a>
-          <a href="mailto:hello@johndoe.com" className="text-gray-600 transition-colors hover:text-black" aria-label={t("hero.ariaEmail")}><Mail size={24} /></a>
+          <a
+            href={t("hero.githubUrl")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 transition-colors hover:text-black"
+            aria-label={t("hero.ariaGithub")}
+          >
+            <Github size={24} aria-hidden />
+          </a>
+          <a
+            href={t("hero.linkedinUrl")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 transition-colors hover:text-black"
+            aria-label={t("hero.ariaLinkedin")}
+          >
+            <Linkedin size={24} aria-hidden />
+          </a>
+          <a href="mailto:hello@johndoe.com" className="text-gray-600 transition-colors hover:text-black" aria-label={t("hero.ariaEmail")}>
+            <Mail size={24} aria-hidden />
+          </a>
         </div>
       </div>
     </section>
