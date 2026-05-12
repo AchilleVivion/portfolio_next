@@ -144,7 +144,7 @@ jobs:
       - name: Setup ZAP folder
         run: |
           mkdir -p /tmp/zap
-          chmod 777 /tmp/zap
+          chmod 755 /tmp/zap
 
       - name: OWASP ZAP Scan
         run: |
