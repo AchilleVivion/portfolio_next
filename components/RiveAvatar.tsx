@@ -11,8 +11,9 @@ import {
 const avatarWidth = 500;
 const avatarHeight = 1000;
 
-function RiveCanvas() {
+type RiveAvatarProps = { readonly ariaLabel?: string };
 
+function RiveCanvas({ ariaLabel = "Play avatar greeting animation" }: RiveAvatarProps) {
   const { RiveComponent, rive } = useRive({
     src: '/avatar.riv',
     stateMachines: 'State Machine 1',
@@ -34,17 +35,20 @@ function RiveCanvas() {
   }, [rive])
 
   return (
-    <div
-      style={{ width: avatarWidth, height: avatarHeight }}
-      className="cursor-pointer"
+    <button
+      type="button"
+      style={{ width: avatarWidth, height: avatarHeight, touchAction: "manipulation" }}
+      className="cursor-pointer border-0 bg-transparent p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+      aria-label={ariaLabel}
       onMouseEnter={fireWave}
+      onClick={fireWave}
     >
       <RiveComponent />
-    </div>
+    </button>
   )
 }
 
-const RiveComponentDynamic = dynamic(
+const RiveComponentDynamic = dynamic<RiveAvatarProps>(
   async () => {
     const mod = await import('@rive-app/react-webgl2')
     if (mod.RuntimeLoader) {
@@ -58,7 +62,7 @@ const RiveComponentDynamic = dynamic(
   }
 )
 
-export default function RiveCharacter() {
+export default function RiveCharacter({ ariaLabel }: RiveAvatarProps) {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -68,5 +72,5 @@ export default function RiveCharacter() {
 
   if (!isMounted) return <div style={{ width: avatarWidth, height: avatarHeight }} />
 
-  return <RiveComponentDynamic />
+  return <RiveComponentDynamic ariaLabel={ariaLabel} />
 }
