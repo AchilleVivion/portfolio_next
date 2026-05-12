@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Portfolio — Achille",
-    "description": "Full stack developer & designer. Web applications, clean code, and exceptional user experiences."
+    "description": "Full stack developer & designer. Web, mobile and desktop applications, clean code, DevSecOps, and great user experiences."
   },
   "portfolio": {
     "nav": {
@@ -27,21 +27,21 @@
       "ariaGithub": "GitHub",
       "ariaLinkedin": "LinkedIn",
       "ariaEmail": "Email",
-      "githubUrl": "https://github.com/",
-      "linkedinUrl": "https://www.linkedin.com/"
+      "githubUrl": "https://github.com/AchilleVivion",
+      "linkedinUrl": "https://www.linkedin.com/in/achille-vivion-083560172"
     },
     "about": {
       "heading": "About Me",
-      "p1": "I'm a passionate developer with 5+ years of experience building modern web applications. I specialize in React, TypeScript, and Node.js, with a keen eye for design and user experience.",
+      "p1": "I'm a passionate developer with 4+ years of experience building modern web applications. I specialize in React, TypeScript, and Node.js, with a keen eye for design and user experience.",
       "p2": "When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing knowledge through technical writing and mentorship.",
       "cards": {
         "experience": {
           "title": "Experience",
-          "value": "5+ years in web development"
+          "value": "4+ years in web development"
         },
         "location": {
           "title": "Location",
-          "value": "San Francisco, CA"
+          "value": "Nantes, France"
         },
         "availability": {
           "title": "Availability",
@@ -58,18 +58,6 @@
           "description": "A full-featured online store with payment integration, inventory management, and admin dashboard.",
           "tags": ["React", "Node.js", "MongoDB"],
           "href": "https://demo.vercel.store/"
-        },
-        {
-          "title": "Task Management App",
-          "description": "Collaborative project management tool with real-time updates and team collaboration features.",
-          "tags": ["TypeScript", "React", "Firebase"],
-          "href": "https://github.com/topics/task-management"
-        },
-        {
-          "title": "Weather Dashboard",
-          "description": "Beautiful weather app with forecasts, interactive maps, and location-based alerts.",
-          "tags": ["React", "API Integration", "Charts"],
-          "href": "https://www.windy.com/"
         }
       ]
     },
@@ -81,6 +69,7 @@
           "React & Next.js",
           "TypeScript",
           "Tailwind CSS",
+          "Bootstrap",
           "HTML/CSS/JavaScript"
         ]
       },
@@ -90,12 +79,21 @@
           "Node.js & Express",
           "PostgreSQL & MongoDB",
           "REST APIs",
-          "GraphQL"
+          "GraphQL",
+          "ASP"
         ]
       },
       "tools": {
         "title": "Tools & Others",
-        "items": ["Git & GitHub", "Docker", "AWS & Vercel", "Figma"]
+        "items": [
+          "Git & GitHub",
+          "Docker", 
+          "Vercel", 
+          "Figma",
+          "DevSecOps",
+          "Cursor",
+          "SonarQube"
+        ]
       }
     },
     "contact": {
@@ -104,7 +102,7 @@
       "cta": "Get in Touch"
     },
     "footer": {
-      "copyright": "© {year} John Doe. All rights reserved."
+      "copyright": "© {year} Achille Vivion. All rights reserved."
     }
   }
 }
