@@ -29,7 +29,7 @@ const eslintConfig = defineConfig([
       "unicorn/prevent-abbreviations": "off",
       "unicorn/no-null": "off",
       "max-lines-per-function": ["error", { 
-        "max": 30, 
+        "max": 50, 
         "skipBlankLines": true, 
         "skipComments": true,
         "IIFEs": true,

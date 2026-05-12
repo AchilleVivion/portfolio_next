@@ -62,7 +62,32 @@ export function PortfolioNavbar() {
   const menuId = useId();
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
-  useEffect(() => { if (!open) return; const onKeyDown = (e: KeyboardEvent) => e.key === "Escape" && close(); const prev = document.body.style.overflow; document.body.style.overflow = "hidden"; window.addEventListener("keydown", onKeyDown); return () => { window.removeEventListener("keydown", onKeyDown); document.body.style.overflow = prev; }; }, [open, close]);
-  useEffect(() => { const mq = window.matchMedia("(min-width: 768px)"); const onChange = () => mq.matches && setOpen(false); mq.addEventListener("change", onChange); onChange(); return () => mq.removeEventListener("change", onChange); }, []);
-  return (<nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4"><a href="#" className="text-xl font-semibold">{t("brand")}</a><DesktopNav t={t} /><button type="button" className="rounded-lg p-2 text-gray-800 transition-colors hover:bg-gray-100 md:hidden" aria-expanded={open} aria-controls={menuId} aria-label={open ? t("menuClose") : t("menuOpen")} onClick={() => setOpen((v) => !v)}>{open ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}</button></div><MobileNav t={t} menuId={menuId} open={open} onClose={close} /></nav>);
+  useEffect(() => { 
+    if (!open) return; 
+    const onKeyDown = (e: KeyboardEvent) => e.key === "Escape" && close(); 
+    const prev = document.body.style.overflow; 
+    document.body.style.overflow = "hidden"; 
+    globalThis.addEventListener("keydown", onKeyDown); 
+    return () => { 
+      globalThis.removeEventListener("keydown", onKeyDown); 
+      document.body.style.overflow = prev; 
+    };
+  }, [open, close]);
+  useEffect(() => { 
+    const mq = globalThis.matchMedia("(min-width: 768px)"); 
+    const onChange = () => mq.matches && setOpen(false); 
+    mq.addEventListener("change", onChange); 
+    onChange(); 
+    return () => mq.removeEventListener("change", onChange); 
+  }, []);
+  return (
+    <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+        <a href="#" className="text-xl font-semibold">{t("brand")}</a>
+        <DesktopNav t={t} />
+        <button type="button" className="rounded-lg p-2 text-gray-800 transition-colors hover:bg-gray-100 md:hidden" aria-expanded={open} aria-controls={menuId} aria-label={open ? t("menuClose") : t("menuOpen")} onClick={() => setOpen((v) => !v)}>{open ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}</button>
+      </div>
+      <MobileNav t={t} menuId={menuId} open={open} onClose={close} />
+    </nav>
+  );
 }
