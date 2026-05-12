@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@rive-app/react-canvas": "^4.28.4",
@@ -15,24 +16,27 @@
     "@rive-app/react-webgl2": "^4.28.4",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "@vitejs/plugin-react": "^6.0.1",
     "lucide-react": "^0.468.0",
     "next": "^16.2.6",
     "next-intl": "^4.11.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "vite": "^7.3.3"
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^4.1.6",
     "eslint": "^9",
     "eslint-config-next": "16.2.5",
     "eslint-plugin-sonarjs": "^4.0.3",
     "eslint-plugin-unicorn": "^64.0.0",
+    "jsdom": "^29.1.1",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^3"
+    "vite": "^8.0.12",
+    "vitest": "^4.1.6"
   }
 }
