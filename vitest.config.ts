@@ -11,7 +11,8 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
-    setupFiles: ["./vitest.setup.tsx"],
+    setupFiles: ["./tests/setup/vitest.setup.tsx"],
+    include: ["tests/unit/**/*.test.{ts,tsx}"],
     exclude: [
       "**/node_modules/**",
       "**/dist/**",
